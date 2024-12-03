@@ -2,13 +2,8 @@ const express=require('express');
 const dotenv=require('dotenv');
 const connection=require('./database/database.js');
 const router=require('./routes/route.js');
+const ejs=require('ejs');
 
-// const connection=mysql.createConnection({
-//     host:"127.0.0.1",
-//     user:"root",
-//     password:"password",
-//     database:"CRUDNODEJSPAULSQL"
-// });
 
 connection.connect(e=>{
     if(e)
@@ -21,6 +16,8 @@ connection.connect(e=>{
 
 const app=express();
 app.use(express.json());
+app.set('view-engine',ejs);
+
 app.use(express.urlencoded({extended:true}));
 app.use('/',router);
 
