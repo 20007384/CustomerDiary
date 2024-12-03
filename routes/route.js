@@ -3,7 +3,7 @@ const router=express.Router();
 const list=require('../controller/controller.js');
 
 
-router.get('/',c);
+router.get('/',list);
 
 
 router.post('/add', customerController.list);
