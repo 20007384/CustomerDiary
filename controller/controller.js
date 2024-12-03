@@ -6,7 +6,7 @@ module.exports= list = (req, res) => {
                 res.json(err);
             }
 
-            res.render('customers', {
+            res.render('index.ejs', {
                 data: customers
             });
         });
