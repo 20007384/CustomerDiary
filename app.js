@@ -1,14 +1,14 @@
 const express=require('express');
 const dotenv=require('dotenv');
-const mysql=require('mysql2');
+const connection=require('./database/database.js');
 const router=require('./routes/route.js');
 
-const connection=mysql.createConnection({
-    host:"127.0.0.1",
-    user:"root",
-    password:"password",
-    database:"CRUDNODEJSPAULSQL"
-});
+// const connection=mysql.createConnection({
+//     host:"127.0.0.1",
+//     user:"root",
+//     password:"password",
+//     database:"CRUDNODEJSPAULSQL"
+// });
 
 connection.connect(e=>{
     if(e)
