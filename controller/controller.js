@@ -15,4 +15,19 @@ const  list = (req, res) => {
 
 };
 
-module.exports={list};
+const edit = (req, res) => {
+    const { id } = req.params;
+
+        connection.query('SELECT * FROM customer WHERE id = ?', [id], (err, customer) => {
+            if (err) {
+                res.json(err);
+            }
+            
+            res.render('customer_edit', {
+                data: customer[0]
+            });
+        });
+};
+
+
+module.exports={list,edit};
