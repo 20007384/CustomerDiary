@@ -1,12 +1,12 @@
 const express=require('express');
 const router=express.Router();
+const list=require('../controller/controller.js');
 
 
+router.get('/',c);
 
-router.get('/',(req,res)=>res.render('index.js'));
 
-
-router.post('/add', customerController.save);
+router.post('/add', customerController.list);
 
 router.get('/delete/:id', customerController.delete);
 
