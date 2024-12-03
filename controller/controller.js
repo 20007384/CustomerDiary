@@ -1,5 +1,6 @@
 
-module.exports= list = (req, res) => {
+const  list = (req, res) => {
+    console.log("work")
     req.getConnection((err, conn) => {
         conn.query('SELECT * FROM customer', (err, customers) => {
             if (err) {
@@ -12,3 +13,5 @@ module.exports= list = (req, res) => {
         });
     });
 };
+
+module.exports={list};
