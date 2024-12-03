@@ -3,7 +3,7 @@ const dotenv=require('dotenv');
 const connection=require('./database/database.js');
 const router=require('./routes/route.js');
 const ejs=require('ejs');
-
+const path=require('path');
 
 connection.connect(e=>{
     if(e)
@@ -16,6 +16,9 @@ connection.connect(e=>{
 
 const app=express();
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname,'/static')));
+
 app.set('view-engine',ejs);
 
 app.use(express.urlencoded({extended:true}));

@@ -2,12 +2,12 @@ const connection=require('../database/database.js');
 
 
 const  list = (req, res) => {
-    console.log("work")
+   
         connection.query('SELECT * FROM customer', (err, customers) => {
             if (err) {
                 res.json(err);
             }
-
+            console.log("work",customers)
             res.render('index.ejs', {
                 data: customers
             });
@@ -30,4 +30,17 @@ const edit = (req, res) => {
 };
 
 
-module.exports={list,edit};
+const save = (req, res) => {
+    const data = req.body;
+        connection.query('INSERT INTO customer set ?', [data], (err, customer) => {
+            if (err) {
+                res.json(err);
+            }
+
+            res.redirect('/');
+        });
+ 
+};
+
+
+module.exports={list,edit,save};

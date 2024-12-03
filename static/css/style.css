@@ -1,0 +1,11 @@
+.navbar
+{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    background-color: red;
+}
+.navbar a{
+    width: 100%;
+}
