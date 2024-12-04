@@ -12,3 +12,17 @@
     font-size: 25px;
     text-decoration: none;
 }
+.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.container .row 
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
