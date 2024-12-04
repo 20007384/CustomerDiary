@@ -45,16 +45,14 @@ const deleteC = (req, res) => {
 
 const save = (req, res) => {
     const data =(req.body);
-    console.log(data);
-        // connection.query('INSERT INTO customer set ?', [data], (err, customer) => {
-        //     if (err) {
-        //         res.json(err);
-        //     }
+        connection.query('INSERT INTO customer set ?', [data], (err, customer) => {
+            if (err) {
+                return res.json({"success":"false"});
+            }
 
-        //     res.redirect('/');
-        // });
-        res.json({"success":"false"})
- 
+            return res.json({"success":"true",customer:customer})
+        });
+      
 };
 
 

@@ -18,6 +18,9 @@ async function SaveForm()
     if(response.ok)
     {
       const data=await response.json();
+      if(data.success)
+        window.location.href="/";
+
       return data;
     } 
     console.log("Response is not ok!");
