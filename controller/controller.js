@@ -7,7 +7,6 @@ const  list = (req, res) => {
             if (err) {
                 res.json(err);
             }
-            console.log(customers)
             res.render('index.ejs', {
                 data: customers
             });
@@ -44,17 +43,17 @@ const deleteC = (req, res) => {
 };
 
 
-
-
 const save = (req, res) => {
-    const data = req.body;
-        connection.query('INSERT INTO customer set ?', [data], (err, customer) => {
-            if (err) {
-                res.json(err);
-            }
+    const data =(req.body);
+    console.log(data);
+        // connection.query('INSERT INTO customer set ?', [data], (err, customer) => {
+        //     if (err) {
+        //         res.json(err);
+        //     }
 
-            res.redirect('/');
-        });
+        //     res.redirect('/');
+        // });
+        res.json({"success":"false"})
  
 };
 

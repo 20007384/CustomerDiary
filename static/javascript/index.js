@@ -3,13 +3,24 @@ const url='http://localhost:3002'
 SaveForm();
 async function SaveForm()
 {
-   const formData=new FormData();
-   const response=await fetch(`${url}/save`,{method:"POST",body:formData});
+   const form=document.querySelector('.saveform');
+   if(!form)
+    return;
 
-   if(response.ok)
+   form.onsubmit=async(e)=>
    {
-     const data=await response.json();
-     return data;
-   } 
-   console.log("Response is not ok!");
+    e.preventDefault();
+    const formData=new FormData(e.target);
+
+    const object=Object.fromEntries(formData.entries())
+    const response=await fetch(`${url}/add`,{headers:{'Content-Type':'application/json'},method:"POST",body:JSON.stringify(object)});
+ 
+    if(response.ok)
+    {
+      const data=await response.json();
+      return data;
+    } 
+    console.log("Response is not ok!");
+   }
+  
 }
