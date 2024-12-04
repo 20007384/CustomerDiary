@@ -34,14 +34,12 @@ const deleteC = (req, res) => {
     const { id } = req.params;
     console.log('work',id);
 
-        connection.query('DELETE FROM customer WHERE id = ?', [id], (err, customer) => {
+        connection.query('DELETE FROM customer WHERE id = ?', id, (err, customers) => {
             if (err) {
                 res.json(err);
             }
             
-            res.render('index.ejs', {
-                data: customer
-            });
+            res.redirect('/');
         });
 };
 
