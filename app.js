@@ -4,6 +4,8 @@ const connection=require('./database/database.js');
 const router=require('./routes/route.js');
 const ejs=require('ejs');
 const path=require('path');
+dotenv.config({path:'./.env'});
+const app=express();
 
 connection.connect(e=>{
     if(e)
@@ -11,21 +13,22 @@ connection.connect(e=>{
         console.log("database not connected!");
         return;
     }
+    console.log(path.join(__dirname,'static'))
     console.log("Database connected!");
 })
 
-const app=express();
+app.set('view-engine',ejs);
 
-app.use(express.static(path.join(__dirname,'static')));
+app.use('/static', express.static(path.join(__dirname,'static')));
+
 
 app.use(express.json());
 
 
-app.set('view-engine',ejs);
+
 
 app.use(express.urlencoded({extended:true}));
 app.use('/',router);
-
 
 
 

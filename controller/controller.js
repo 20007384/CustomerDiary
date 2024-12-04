@@ -7,7 +7,6 @@ const  list = (req, res) => {
             if (err) {
                 res.json(err);
             }
-            console.log("work",customers)
             res.render('index.ejs', {
                 data: customers
             });
