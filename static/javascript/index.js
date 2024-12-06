@@ -31,6 +31,37 @@ async function SaveForm()
    }
   
 }
+UpdateForm();
+async function UpdateForm()
+{
+   const form=document.querySelector('.updateform');
+   if(!form)
+    return;
+
+   form.onsubmit=async(e)=>
+   {
+    e.preventDefault();
+    
+    if(!Validation())
+      return;
+    
+    const formData=new FormData(e.target);
+
+    const object=Object.fromEntries(formData.entries())
+    const response=await fetch(`${url}/update`,{headers:{'Content-Type':'application/json'},method:"POST",body:JSON.stringify(object)});
+ 
+    if(response.ok)
+    {
+      const data=await response.json();
+      if(data.success)
+        window.location.href="/";
+
+      return data;
+    } 
+    console.log("Response is not ok!");
+   }
+  
+}
 
 function Validation()
 {
@@ -66,13 +97,16 @@ function Validation()
       
         return true;  
 }
+SearchLogic();
 function SearchLogic()
 {
-    const searchBtn=document.querySelector('.searchBtn');
+    const searchBtn=document.querySelector('.searchbtn');
     const searchInput=document.querySelector('.searchtext');
 
     if(!searchBtn) return;
-    searchBtn.onclick=(e)=>{
-       console.log(e);
+    searchBtn.onclick=async(e)=>{
+       e.preventDefault();
+       window.location.href=`/search/${searchInput.value}`
+       console.log('reponse not ok!');
     }   
 }

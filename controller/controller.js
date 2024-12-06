@@ -56,4 +56,20 @@ const save = (req, res) => {
 };
 
 
-module.exports={list,edit,save,deleteC};
+const search = (req, res) => {
+    const detail=req.params.id;
+    
+    connection.query('SELECT * FROM customer where NAME=? OR EMAIL=? OR ADDRESS=? OR PHONE=?',[detail,detail,detail,detail], (err, customers) => {
+        if (err) {
+            res.json(err);
+        }
+        console.log(customers)
+        res.render('index.ejs', {
+            data: customers
+        });
+    });
+
+      
+};
+
+module.exports={list,edit,save,deleteC,search};
