@@ -51,4 +51,20 @@
     border: 1px solid black;
     padding: 8px;
 }
-
+.saveform
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+ 
+}
+.form-group
+{
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
