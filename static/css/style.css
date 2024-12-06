@@ -26,3 +26,29 @@
     align-items: center;
     width: 100%;
 }
+.btn
+{
+    background-color: rgb(85, 85, 255);
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 7px;
+    color: white;
+}
+
+.table tbody tr
+{
+    margin-top: 20px;
+    height: 40px;
+   
+}
+.table tbody tr td
+{
+    border: 1px solid black;
+    padding: 8px;
+}
+.table thead tr th
+{
+    border: 1px solid black;
+    padding: 8px;
+}
+
