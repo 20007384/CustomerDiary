@@ -27,3 +27,24 @@ async function SaveForm()
    }
   
 }
+
+function Validation()
+{
+    const name=document.querySelector('.name');
+    const address=document.querySelector('.address');
+    const email=document.querySelector('.email');
+    const phone=document.querySelector('.phone');
+    const saveForm=document.querySelector('.saveform');
+    const nameError=document.querySelector('.nameerror');
+    const addressError=document.querySelector('.addresserror');
+    const phoneError=document.querySelector('.phoneerror');
+    const emailError=document.querySelector('.emailerror');
+
+
+    
+
+    saveForm.onsubmit=(e)=>{
+      e.preventDefault();
+
+    }
+}
