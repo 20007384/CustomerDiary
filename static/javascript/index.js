@@ -64,7 +64,15 @@ function Validation()
         {console.log("values");
         return false;}
       
-        return true;
+        return true;  
+}
+function SearchLogic()
+{
+    const searchBtn=document.querySelector('.searchBtn');
+    const searchInput=document.querySelector('.searchtext');
 
-    
+    if(!searchBtn) return;
+    searchBtn.onclick=(e)=>{
+       console.log(e);
+    }   
 }
