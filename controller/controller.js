@@ -29,9 +29,23 @@ const edit = (req, res) => {
         });
 }
 
+const update = (req, res) => {
+    const { id } = req.params;
+    console.log('update',id);
+    const data=req.body;
+    console.log('update',data);
+        connection.query('UPDATE customer set NAME=?, EMAIL=?, PHONE=?, ADDRESS=? WHERE ID =?', [data.name,data.email,data.phone,data.address,id], (err, customer) => {
+            if (err) {
+                res.json(err);
+            }
+            
+           return  res.json({"success":true});
+        });
+}
+
+
 const deleteC = (req, res) => {
     const { id } = req.params;
-    console.log('work',id);
 
         connection.query('DELETE FROM customer WHERE id = ?', id, (err, customers) => {
             if (err) {
@@ -69,7 +83,7 @@ const search = (req, res) => {
         });
     });
 
-      
+    
 };
 
-module.exports={list,edit,save,deleteC,search};
+module.exports={list,edit,save,deleteC,search,update};

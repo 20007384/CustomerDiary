@@ -42,19 +42,20 @@ async function UpdateForm()
    {
     e.preventDefault();
     
+
     if(!Validation())
       return;
     
     const formData=new FormData(e.target);
-
+    const id=window.location.pathname.split('/')[2];
     const object=Object.fromEntries(formData.entries())
-    const response=await fetch(`${url}/update`,{headers:{'Content-Type':'application/json'},method:"POST",body:JSON.stringify(object)});
- 
+    const response=await fetch(`${url}/updateuser/${id}`,{headers:{'Content-Type':'application/json'},method:"PUT",body:JSON.stringify(object)});
+    const message=document.querySelector('.message');
     if(response.ok)
     {
       const data=await response.json();
       if(data.success)
-        window.location.href="/";
+       message.innerText="User has been updated!"
 
       return data;
     } 
