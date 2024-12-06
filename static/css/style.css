@@ -50,6 +50,8 @@
 {
     border: 1px solid black;
     padding: 8px;
+    background-color: rgb(85, 85, 255);
+    color: white;
 }
 .saveform
 {
