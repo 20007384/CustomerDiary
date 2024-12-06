@@ -10,6 +10,10 @@ async function SaveForm()
    form.onsubmit=async(e)=>
    {
     e.preventDefault();
+    
+    if(!Validation())
+      return;
+    
     const formData=new FormData(e.target);
 
     const object=Object.fromEntries(formData.entries())
@@ -40,11 +44,27 @@ function Validation()
     const phoneError=document.querySelector('.phoneerror');
     const emailError=document.querySelector('.emailerror');
 
+    nameError.innerText="";
+    addressError.innerText="";
+    phoneError.innerText="";
+    emailError.innerText="";
+
+      if(name && !name.value)
+        nameError.innerText="Required!"
+      if(address && !address.value)
+        addressError.innerText="Required!"
+      if(phone && !phone.value)
+        phoneError.innerText="Required!"
+      if(email && !email.value)
+      {  emailError.innerText="Required!"
+        return;
+      }
+
+      if(!email.value || !name.value || !address.value || !phone.value)
+        {console.log("values");
+        return false;}
+      
+        return true;
 
     
-
-    saveForm.onsubmit=(e)=>{
-      e.preventDefault();
-
-    }
 }
