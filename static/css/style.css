@@ -72,3 +72,12 @@
 {
     color: red;
 }
+.search
+{
+    width: 100%;
+    text-align:end;  
+}
+.search button
+{
+    margin-right: 50px;
+}
