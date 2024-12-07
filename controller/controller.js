@@ -73,11 +73,11 @@ const save = (req, res) => {
 const search = (req, res) => {
     const detail=req.params.id;
     
-    connection.query('SELECT * FROM customer where NAME=? OR EMAIL=? OR ADDRESS=? OR PHONE=?',[detail,detail,detail,detail], (err, customers) => {
+    connection.query('SELECT * FROM customer where NAME=? OR EMAIL=? OR ADDRESS=? OR PHONE=? ORDER BY NAME ASC',[detail,detail,detail,detail], (err, customers) => {
         if (err) {
             res.json(err);
         }
-        console.log(customers)
+        
         res.render('index.ejs', {
             data: customers
         });

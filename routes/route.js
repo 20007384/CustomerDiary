@@ -10,6 +10,8 @@ router.put('/updateuser/:id', update);
 router.get('/update/:id', edit);
 
 
+// router.delete('/delete/:id', deleteC);
+
 router.get('/delete/:id', deleteC);
 
 router.post('/add', save);

@@ -107,7 +107,10 @@ function SearchLogic()
     if(!searchBtn) return;
     searchBtn.onclick=async(e)=>{
        e.preventDefault();
+       if(searchInput.value)
        window.location.href=`/search/${searchInput.value}`
+      else
+       window.location.reload();
        console.log('reponse not ok!');
     }   
 }
